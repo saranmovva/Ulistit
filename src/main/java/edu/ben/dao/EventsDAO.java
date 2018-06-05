@@ -1,0 +1,19 @@
+package edu.ben.dao;
+
+import edu.ben.model.CalendarEvent;
+
+import java.util.List;
+
+public interface EventsDAO {
+    public void delete(int id);
+
+    public void saveOrUpdate(CalendarEvent events);
+
+    public void create(CalendarEvent events);
+
+    public List getAllEvents();
+
+    public List getActiveAndInactiveListings();
+
+    public CalendarEvent getEventsByID(int id);
+}

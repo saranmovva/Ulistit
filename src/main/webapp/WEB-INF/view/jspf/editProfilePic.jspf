@@ -1,0 +1,23 @@
+<div id="editProfilePic${user.userID}" class="modal fade" role="dialog"
+	style="margin-top: 15%;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">x</button>
+				<h3 class="modal-title">Edit Profile Picture</h3>
+			</div>
+			<div class="modal-body">
+				<form method="post" action="uploadProfilePic" name="profilePic"
+					enctype="multipart/form-data">
+					
+					<div class="form-group">
+						<strong>Edit Image:</strong> <input type="file" name="file">
+					</div>
+
+					<button type="submit" id="submit" name="submit"
+						class="btn btn-primary pull-right">Edit Changes</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

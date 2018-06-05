@@ -1,0 +1,31 @@
+.bg {
+    background-color: #dfdfdf;
+}
+
+.rwrapper {
+    padding: 5px;
+}
+
+.rlisting {
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.rlisting img {
+    width: 100%
+}
+
+.nopad {
+    padding: 0;
+}
+
+.rfooter {
+    background: #f1f3f5;
+    border-top: 1px #ebebeb solid;
+    width: 100%;
+    padding: 10px 15px
+}
+
+.rlisting h5, .rlisting p {
+    padding: 0 15px;
+}

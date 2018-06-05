@@ -1,0 +1,233 @@
+.notification-page-icon {
+    height: 90px;
+    width: 90px;
+}
+
+.notification-nav-icon {
+    height: 35px;
+    width: 35px;
+    color: white;
+    padding: 5px;
+    font-size: 1.6em;
+}
+
+/* ---WON--- */
+.notification-icon-circle-won {
+    border-radius: 50%;
+    background-color: #85FFBD;
+    background-image: linear-gradient(135deg, #85FFBD 0%, #FFFB7D 100%);
+}
+
+/* MAIN */
+.notification-icon-won {
+    font-size: 3.2em;
+    color: white;
+}
+
+/* NAV */
+.nav-notification-icon-won {
+    border-radius: 50%;
+    background-color: #85FFBD;
+    background-image: linear-gradient(135deg, #85FFBD 0%, #FFFB7D 100%);
+}
+
+/* ---LOST--- */
+.notification-icon-circle-lost {
+    border-radius: 50%;
+    background-color: #FF3CAC;
+    background-image: linear-gradient(135deg, #FF3CAC 0%, #2B86C5 100%);
+}
+
+/* MAIN */
+.notification-icon-lost {
+    font-size: 3.4em;
+    color: white;
+}
+
+.notification-icon-lost svg {
+    padding-bottom: 3px;
+}
+
+/* NAV */
+.nav-notification-icon-lost {
+    border-radius: 50%;
+    background-color: #FF3CAC;
+    background-image: linear-gradient(135deg, #FF3CAC 0%, #2B86C5 100%);
+}
+
+/* ---SOLD--- */
+.notification-icon-circle-sold {
+    border-radius: 50%;
+    background-color: #c5eb61;
+    background-image: linear-gradient(307deg, #c5eb61 0%, #33b734 100%)
+}
+
+/* MAIN */
+.notification-icon-sold {
+    font-size: 3.2em;
+    color: white;
+}
+
+/* NAV */
+.nav-notification-icon-sold {
+    border-radius: 50%;
+    background-color: #c5eb61;
+    background-image: linear-gradient(307deg, #c5eb61 0%, #33b734 100%);
+}
+
+/* ---HIGHEST BIDDER--- */
+.notification-icon-circle-highest-bidder {
+    border-radius: 50%;
+    background-color: #FF9A8B;
+    background-image: linear-gradient(315deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+}
+
+/* MAIN */
+.notification-icon-highest-bidder {
+    font-size: 3.2em;
+    color: white;
+}
+
+/* NAV */
+.nav-notification-icon-highest-bidder {
+    border-radius: 50%;
+    background-color: #FF9A8B;
+    background-image: linear-gradient(315deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+}
+
+/* ---NO BIDDER--- */
+.notification-icon-circle-no-bidder {
+    width: 90px;
+    border-radius: 50%;
+    background-color: #74EBD5;
+    background-image: linear-gradient(135deg, #74EBD5 0%, #9FACE6 100%);
+}
+
+/* MAIN */
+.notification-icon-no-bidder {
+    font-size: 3.2em;
+    color: white;
+}
+
+/* NAV */
+.nav-notification-icon-no-bidder {
+    border-radius: 50%;
+    background-color: #74EBD5;
+    background-image: linear-gradient(135deg, #74EBD5 0%, #9FACE6 100%);
+}
+
+/* ---BID CANCEL--- */
+.notification-icon-circle-bid-cancel {
+    border-radius: 50%;
+    background-color: #FEE140;
+    background-image: linear-gradient(319deg, #FEE140 0%, #FA709A 100%);
+}
+
+/* MAIN */
+.notification-icon-bid-cancel {
+    font-size: 3.5em;
+    color: white;
+}
+
+.notification-icon-bid-cancel svg {
+    padding-bottom: 4px;
+}
+
+/* NAV */
+.nav-notification-icon-bid-cancel {
+    border-radius: 50%;
+    background-color: #FEE140;
+    background-image: linear-gradient(319deg, #FEE140 0%, #FA709A 100%);
+}
+
+/* ---DISPUTE--- */
+.notification-icon-circle-dispute {
+    border-radius: 50%;
+    background-color: #FFE53B;
+    background-image: linear-gradient(307deg, #FFE53B 0%, #FF2525 74%);
+}
+
+/* MAIN */
+.notification-icon-dispute {
+    font-size: 3.4em;
+    color: white;
+}
+
+.notification-icon-dispute svg {
+    padding-bottom: 8px;
+}
+
+/* NAV */
+.nav-notification-icon-dispute {
+    border-radius: 50%;
+    background-color: #FFE53B;
+    background-image: linear-gradient(307deg, #FFE53B 0%, #FF2525 74%);
+
+}
+
+/* ---DONATION--- */
+.notification-icon-circle-donation {
+    border-radius: 50%;
+    background-color: #21D4FD;
+    background-image: linear-gradient(315deg, #21D4FD 0%, #B721FF 100%);
+}
+
+/* MAIN */
+.notification-icon-donation {
+    font-size: 3.5em;
+    color: white;
+}
+
+.notification-icon-donation svg {
+    margin-bottom: 10px;
+}
+
+/* NAV */
+.nav-notification-icon-donation {
+    border-radius: 50%;
+    background-color: #21D4FD;
+    background-image: linear-gradient(315deg, #21D4FD 0%, #B721FF 100%);
+}
+
+/* ---PICKUP--- */
+.notification-icon-circle-pickup {
+    border-radius: 50%;
+    background-color: #FEE140;
+    background-image: linear-gradient(316deg, #FEE140 0%, #FA709A 100%);
+}
+
+/* MAIN */
+.notification-icon-pickup {
+    font-size: 3.2em;
+    color: white;
+}
+
+.notification-icon-pickup svg {
+    padding-bottom: 2px;
+}
+
+/* NAV */
+.nav-notification-icon-pickup {
+    border-radius: 50%;
+    background-color: #FEE140;
+    background-image: linear-gradient(316deg, #FEE140 0%, #FA709A 100%);
+}
+
+/* ---DEFAULT--- */
+.notification-icon-circle-default {
+    border-radius: 50%;
+    background-color: #08AEEA;
+    background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+}
+
+.notification-icon-default {
+    font-size: 3.2em;
+    color: white;
+}
+
+/* NAV */
+.nav-notification-icon-default {
+    border-radius: 50%;
+    background-color: #21D4FD;
+    background-image: linear-gradient(315deg, #21D4FD 0%, #B721FF 100%);
+}

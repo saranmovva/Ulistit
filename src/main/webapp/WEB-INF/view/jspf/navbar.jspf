@@ -1,0 +1,387 @@
+<!-- Desktop Navbar -->
+<div class="uk-position-relative homepage-tutorial uk-margin-bottom"
+     style="background-color: white; margin-bottom: 10px;">
+    <div class="uk-position-relativetop" id="desktop-navbar">
+
+        <nav class="uk-navbar-container" style="color: rgba(238, 238, 238, 0)"
+             uk-navbar>
+
+            <!-- Left Side Desktop -->
+            <c:choose>
+                <c:when test="${sessionScope.user != null}">
+                    <div class="uk-navbar-left" id="left-side-desktop">
+                        <ul class="uk-navbar-nav">
+                            <li><a class="uk-active" href="/index">Home</a></li>
+                            <li><a href="/communityPage">Community</a></li>
+                            <li><a href="/donate">Donations</a></li>
+                            <li><a href="/createListing">Create Listing</a></li>
+                            <li><a href="/allView" uk-icon="icon: thumbnails" uk-tooltip="All Listings" ></a></li>
+                        </ul>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div class="uk-navbar-left" id="left-side-desktop">
+                        <ul class="uk-navbar-nav">
+                            <li><a class="uk-active" href="/index">Home</a></li>
+                            <li><a href="/communityPage">Community</a></li>
+                            <li><a href="/donate">Donations</a></li>
+                            <li><a href="/allView" uk-icon="icon: thumbnails" uk-tooltip="All Listings" ></a></li>
+                        </ul>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+
+            <!-- Center Desktop -->
+            <div class="uk-navbar-center">
+                <div class="uk-padding-small" style="margin-top: 25px">
+                    <img class="uk-align-center" src="${pageContext.request.contextPath}/resources/img/logo2.png"
+                         style="width: 25%; display: block; margin: auto;">
+                </div>
+            </div>
+
+            <!-- Right Side Desktop -->
+            <div class="uk-navbar-right">
+                <div>
+                    <!-- Search -->
+                    <a class="uk-navbar-toggle homepage-tutorial" uk-search-icon href="#"
+                       id="desktop-navbar-search"></a>
+                    <div class="uk-drop"
+                         uk-drop="mode: click; pos: left-center; offset: 0">
+                        <form class="uk-search uk-search-navbar uk-width-1-1"
+                              method="POST" action="searchResults">
+                            <input class="uk-search-input" type="search"
+                                   placeholder="Search..." autofocus name="search">
+                        </form>
+                    </div>
+                </div>
+                <ul class="uk-navbar-nav">
+
+                    <!-- Freshman Checklist Icon -->
+                    <c:if test="${checklist != null}">
+                        <li><a uk-toggle="target: #offcanvas-flip"
+                               uk-icon="icon: list" type="Freshman Checklist"></a></li>
+                    </c:if>
+
+                    <!-- Notification Icon -->
+                    <li>
+                        <a uk-icon="icon: bell" class="homepage-tutorial"
+                           id="notificationBell" onclick="hideNotifications()" id="desktop-nav-icon">
+                            <span class="badge1"
+                                  id="badge1"
+                                  data-badge="0" style="display: none;"></span>
+                        </a>
+
+                        <div uk-drop="mode: click" id="notificationDrop">
+
+                            <!-- Start Of Notification List -->
+                            <div class="uk-card uk-card-default uk-padding-small uk-padding-remove-right"
+                                 style="text-align: center">
+
+                                <c:choose>
+
+                                    <c:when test="${user != null}">
+                                        <!-- Header -->
+                                        <div class="uk-card-header uk-padding-small uk-text-left">
+                                            <h4><strong><a class="uk-link-heading" href="/notifications"
+                                                           id="notificationHeader"></a></strong>
+                                            </h4>
+                                        </div>
+
+                                        <!-- Body -->
+                                        <div class="uk-card-body uk-padding-remove" id="notificationList"></div>
+
+                                        <!-- Card Footer -->
+                                        <div class="uk-card-footer uk-background-default" id="notificationFooter">
+                                            <a href="${pageContext.request.contextPath}/notifications"
+                                               class="uk-button uk-button-text">See More</a>
+                                        </div>
+                                    </c:when>
+
+                                    <c:otherwise>
+                                        <a uk-icon="icon: sign-in" href="/login"
+                                           style="text-align: center">Login To See Notifications</a>
+                                    </c:otherwise>
+
+                                </c:choose>
+
+                            </div>
+                        </div>
+                    </li>
+                    <c:choose>
+                        <c:when test="${user != null }">
+                            <li><a>Welcome ${sessionScope.user.firstName}</a>
+                                <div uk-dropdown>
+                                    <ul class="uk-nav uk-dropdown-nav uk-grid-small" uk-grid>
+                                        <li class="uk-width-1-1"><a
+                                                href="${pageContext.request.contextPath}/viewProfile?id=${sessionScope.user.userID}">
+                                            Profile Page</a></li>
+                                        <li class="uk-width-1-1"><a
+                                                href="${pageContext.request.contextPath}/dashboard">
+                                            My Dashboard</a></li>
+                                        <li class="uk-width-1-1"><a
+                                                href="${pageContext.request.contextPath}/viewPurchaseHistory">
+                                            Purchase History</a></li>
+                                        <li class="uk-width-1-1"><a
+                                                href="${pageContext.request.contextPath}/notifications">
+                                            Notification</a></li>
+                                        <c:if test="${user.adminLevel > 0}">
+                                            <li class="uk-width-1-1"><a
+                                                    href="${pageContext.request.contextPath}/admin"> Admin</a></li>
+                                        </c:if>
+                                        <li class="uk-width-1-1"><a
+                                                href="${pageContext.request.contextPath}/logout">Logout</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${pageContext.request.contextPath}/login">
+                                Login</a></li>
+                            <li><a href="${pageContext.request.contextPath}/register">
+                                Register</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                </ul>
+            </div>
+
+        </nav>
+
+    </div>
+</div>
+
+<!-- Mobile Nabvar -->
+<div class="uk-position-relative homepage-tutorial uk-margin-bottom"
+     style="background-color: white; margin-bottom: 10px;"
+     id="mobile-navbar-main">
+    <div class="uk-position-relativetop" id="mobile-navbar" style="display: none;">
+
+        <nav class="uk-navbar-container" style="color: rgba(238, 238, 238, 0)"
+             uk-navbar>
+
+            <!-- Left Side Mobile -->
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-toggle homepage-tutorial" uk-navbar-toggle-icon
+                   uk-toggle="target: #offcanvas-slide"></a>
+            </div>
+
+            <!-- Center Mobile -->
+            <div class="uk-navbar-center">
+                <div class="uk-padding-small" style="margin-top: 12px" id="mobile-navbar-icon">
+                    <img class="uk-align-center" src="${pageContext.request.contextPath}/resources/img/logo2.png"
+                         style="width: 75%; display: block; margin: auto;">
+                </div>
+            </div>
+
+            <!-- Right Side Mobile -->
+            <div class="uk-navbar-right">
+
+                <!-- Search -->
+                <a class="uk-navbar-toggle" href="#search-overlay" uk-search-icon uk-toggle
+                   id="mobile-navbar-search"></a>
+
+                <c:choose>
+                    <c:when test="${sessionScope.user == null}">
+                        <a class="uk-navbar-toggle" uk-toggle="target: #right-side-nav" uk-icon="icon: user"></a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="uk-navbar-toggle" uk-toggle="target: #right-side-nav">
+                            <img class="uk-border-circle" style="width: 30px; height: 30px;"
+                                 src="${pageContext.request.contextPath}/directory/${user.mainImage}"/></a>
+                    </c:otherwise>
+                </c:choose>
+
+            </div>
+
+        </nav>
+
+    </div>
+</div>
+
+<!-- Tablet Nabvar -->
+<div class="uk-position-relative homepage-tutorial uk-margin-bottom"
+     style="background-color: white; margin-bottom: 10px;"
+     id="tablet-navbar-main">
+    <div class="uk-position-relativetop" id="tablet-navbar" style="display: none;">
+
+        <nav class="uk-navbar-container" style="color: rgba(238, 238, 238, 0)"
+             uk-navbar>
+
+            <!-- Left Side Tablet -->
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-toggle homepage-tutorial" uk-navbar-toggle-icon
+                   uk-toggle="target: #offcanvas-slide"></a>
+            </div>
+
+            <!-- Center Tablet -->
+            <div class="uk-navbar-center">
+                <div class="uk-padding-small" style="margin-top: 12px" id="tablet-navbar-icon">
+                    <img class="uk-align-center" src="${pageContext.request.contextPath}/resources/img/logo2.png"
+                         style="width: 35%; display: block; margin: auto;">
+                </div>
+            </div>
+
+            <!-- Right Side Tablet -->
+            <div class="uk-navbar-right">
+
+                <div>
+                    <!-- Search -->
+                    <a class="uk-navbar-toggle homepage-tutorial" uk-search-icon href="#"
+                       id="tablet-navbar-search"></a>
+                    <div class="uk-drop uk-width-1-5"
+                         uk-drop="mode: click; pos: left-center; offset: 0">
+                        <form class="uk-search uk-search-navbar uk-width-1-1"
+                              method="POST" action="searchResults">
+                            <input class="uk-search-input" type="search"
+                                   placeholder="Search..." autofocus name="search">
+                        </form>
+                    </div>
+                </div>
+
+                <c:choose>
+                    <c:when test="${sessionScope.user == null}">
+                        <a class="uk-navbar-toggle" uk-toggle="target: #right-side-nav" uk-icon="icon: user"></a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="uk-navbar-toggle" uk-toggle="target: #right-side-nav">
+                            <img class="uk-border-circle" style="width: 30px; height: 30px;"
+                                 src="${pageContext.request.contextPath}/directory/${user.mainImage}"/></a>
+                    </c:otherwise>
+                </c:choose>
+
+            </div>
+
+        </nav>
+
+    </div>
+</div>
+
+<!-- Search Popup -->
+<div id="search-overlay" class="uk-overlay uk-light uk-align-center uk-border-rounded uk-padding-small"
+     style="width:85%;background: rgba(34,34,34,0.85);" hidden>
+    <form class="uk-search uk-search-navbar" method="POST" action="searchResults">
+        <span uk-search-icon></span>
+        <input class="uk-search-input" type="search" name="search" placeholder="Search...">
+    </form>
+</div>
+
+<!-- Left Side Nav Menu -->
+<div id="offcanvas-slide" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar">
+
+        <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+            <li><a href="${pageContext.request.contextPath}/index"><span
+                    class="uk-margin-small-right" uk-icon="icon: home"></span>Home</a></li>
+            <li class="uk-nav-divider"></li>
+
+            <c:if test="${sessionScope.user != null}">
+                <li><a href="${pageContext.request.contextPath}/createListing"><span
+                        class="uk-margin-small-right" uk-icon="icon: plus-circle"></span>Create
+                    Listing</a></li>
+                <li class="uk-nav-divider"></li>
+            </c:if>
+            <c:if test="${sessionScope.user.adminLevel > 0}">
+                <li><a href="${pageContext.request.contextPath}/admin"><span
+                        class="uk-margin-small-right" uk-icon="icon: cog"></span>Admin</a></li>
+            </c:if>
+
+            <li class="uk-nav-divider"></li>
+            <li><a href="${pageContext.request.contextPath}/donate"><span
+                    class="uk-margin-small-right" uk-icon="icon: happy"></span>Donations</a></li>
+
+            <li><a href="/allView"><span
+                    class="uk-margin-small-right" uk-icon="icon: thumbnails"></span>All Listings</a></li>
+
+            <li class="uk-nav-divider"></li>
+            <li><a href="${pageContext.request.contextPath}/aboutUs"><span
+                    class="uk-margin-small-right" uk-icon="icon: users"></span>About Us</a></li>
+
+            <li class="uk-nav-divider"></li>
+            <li><a href="${pageContext.request.contextPath}/faqs"><span
+                    class="uk-margin-small-right" uk-icon="icon: question"></span>Faq</a></li>
+
+        </ul>
+
+    </div>
+</div>
+
+<!-- Right Side Nav Menu -->
+<div id="right-side-nav" uk-offcanvas="flip: true; overlay: true">
+    <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+
+            <c:choose>
+                <c:when test="${sessionScope.user == null}">
+                    <!-- No User -->
+                    <li><a href="/login"><span
+                            class="uk-margin-small-right" uk-icon="icon: sign-in"></span>Login</a></li>
+                    <li class="uk-nav-divider"></li>
+
+                    <li><a href="${pageContext.request.contextPath}/register"><span
+                            class="uk-margin-small-right" uk-icon="icon: user"></span>Register</a></li>
+                    <li class="uk-nav-divider"></li>
+                </c:when>
+                <c:otherwise>
+
+                    <li><h3>Welcome, ${sessionScope.user.firstName}</h3></li>
+                    <!-- User Logged In -->
+                    <li class="uk-nav-divider"></li>
+
+                    <li><a href="${pageContext.request.contextPath}/viewProfile?id=${sessionScope.user.userID}"><span
+                            class="uk-margin-small-right" uk-icon="icon: user"></span>Profile</a></li>
+                    <li class="uk-nav-divider"></li>
+
+                    <li><a href="${pageContext.request.contextPath}/dashboard"><span
+                            class="uk-margin-small-right" uk-icon="icon: thumbnails"></span>Dashboard</a></li>
+                    <li class="uk-nav-divider"></li>
+
+
+                    <li><a href="${pageContext.request.contextPath}/notifications"><span
+                            class="uk-margin-small-right" uk-icon="icon: bell"></span>Notifications</a></li>
+                    <li class="uk-nav-divider"></li>
+
+                    <c:if test="${checklist != null}">
+                        <li><a href="${pageContext.request.contextPath}/checklist"><span
+                                class="uk-margin-small-right" uk-icon="icon: list"></span>Checklist</a></li>
+                        <li class="uk-nav-divider"></li>
+                    </c:if>
+
+                    <li class="fixed listing "><a href="${pageContext.request.contextPath}/logout"><span
+                            class="uk-margin-small-right" uk-icon="icon: sign-out"></span>Logout</a></li>
+                    <li class="uk-nav-divider"></li>
+
+                </c:otherwise>
+            </c:choose>
+
+        </ul>
+    </div>
+</div>
+
+<%@include file="../checklist/checklist-sidenav.jsp" %>
+
+<script>
+    window.addEventListener("load", checkDeviceWidth);
+    window.addEventListener("resize", checkDeviceWidth);
+
+    function checkDeviceWidth() {
+
+        // Desktop navbar
+        if (screen.width > 1100) {
+            document.getElementById("mobile-navbar").style.display = "none";
+            document.getElementById("tablet-navbar").style.display = "none";
+            document.getElementById("desktop-navbar").style.display = "inline";
+
+            // Tablet navbar
+        } else if (screen.width <= 1100 && screen.width > 400) {
+            document.getElementById("mobile-navbar").style.display = "none";
+            document.getElementById("tablet-navbar").style.display = "inline";
+            document.getElementById("desktop-navbar").style.display = "none";
+
+            // Mobile
+        } else if (screen.width <= 400) {
+            document.getElementById("mobile-navbar").style.display = "inline";
+            document.getElementById("tablet-navbar").style.display = "none";
+            document.getElementById("desktop-navbar").style.display = "none";
+        }
+    }
+
+</script>

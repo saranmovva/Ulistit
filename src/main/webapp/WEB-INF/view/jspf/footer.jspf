@@ -1,0 +1,74 @@
+<div class="uk-width-1-1 uk-padding-small uk-text-center" style="background-color: #333333" id="footer">
+    <a href="#" uk-totop uk-scroll uk-tooltip="title: Back To Top"></a>
+</div>
+<div class="uk-section uk-section-large" style="background-color: #2c3e50">
+    <div class="uk-container" style="padding-left: 20px; padding-right: 20px;">
+        <div class="uk-text-center uk-light uk-text-small uk-grid-large uk-margin-large uk-grid"
+             uk-grid>
+
+            <div class="uk-width-expand@m uk-width-1-2@s uk-first-column"
+                 style="color: #ffffff; text-decoration: none;">
+                <h5><strong>Account</strong></h5>
+                <c:choose>
+
+                    <c:when test="${sessionScope.user != null}">
+
+
+                        <a href="${pageContext.request.contextPath}/viewProfile?userId=${sessionScope.user.userID}">Profile</a>
+
+                        <a href="/dashboard">Dashboard</a>
+                        <a href="/notifications">Notifications</a>
+                        <a href="/createListing">Create A Listing</a>
+                        <a href="/viewPurchaseHistory">Purchase History</a>
+
+                        <c:if test="${sessionScope.user.gradeLevel == 1}">
+                            <a href="/checklist">Freshman Checklist</a>
+                        </c:if>
+                    </c:when>
+
+                    <c:otherwise>
+                        <a href="/register">Register</a>
+                        <a href="/login">Login</a>
+                        <a href="/banAppeal">User Ban Appeal</a>
+                    </c:otherwise>
+
+                </c:choose>
+            </div>
+
+            <div class="uk-width-expand@m uk-width-1-2@s">
+                <h5><strong>Need Help?</strong></h5>
+                <a href="/faqs" style="color: #ffffff; text-decoration: none;">Frequently
+                    Asked Questions</a>
+                <br>
+                <a href="${pageContext.request.contextPath}/contactUs"
+                   style="color: #ffffff; text-decoration: none;">Contact
+                    Us</a> <br>
+                <a href="${pageContext.request.contextPath}/rules"
+                   style="color: #ffffff; text-decoration: none;">Rules</a>
+            </div>
+
+            <div class="uk-width-expand@m uk-width-1-2@s">
+                <h5><strong>Get To Know Us</strong></h5>
+                <p>
+                    <a href="/aboutUs" style="color: #ffffff; text-decoration: none;">About Us</a>
+                </p>
+            </div>
+
+            <div class="uk-width-expand@m uk-width-1-2@s">
+                <h5><strong>More..</strong></h5>
+                <a href="/donate" style="color: #ffffff; text-decoration: none;">Donations</a>
+                <br>
+                <a href="/communityPage" style="color: #ffffff; text-decoration: none;">Community</a>
+                <br>
+                <a href="/" style="color: #ffffff; text-decoration: none;">Landing Page</a>
+            </div>
+
+            <div class="uk-width-1-1 uk-text-center uk-padding-remove">
+                <p>
+                    &copy;U-ListIt - All rights reserved
+                    2018.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

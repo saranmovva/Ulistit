@@ -1,0 +1,137 @@
+<div class="uk-position-relative" style="background-color: white; margin-bottom: 5%;">
+    <div class="uk-position-relativetop">
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav">
+                    <li><a href="${pageContext.request.contextPath}/">Home</a></li>
+                    <li><a
+                            href="${pageContext.request.contextPath}/displayListing">View
+                        Listings</a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <div>
+                    <a class="uk-navbar-toggle" uk-search-icon href="#"></a>
+                    <div class="uk-drop"
+                         uk-drop="mode: click; pos: left-center; offset: 0">
+                        <form class="uk-search uk-search-navbar uk-width-1-1"
+                              method="POST" action="searchResults">
+                            <input class="uk-search-input" type="search"
+                                   placeholder="Search..." autofocus name="search">
+                        </form>
+                    </div>
+                </div>
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <c:choose>
+                            <c:when test="${unviewedNotificationCount > 0}">
+                                <a href="" uk-icon="icon: bell"><span
+                                        class="badge1" id="badge1"
+                                        data-badge="${unviewedNotificationCount}"></span></a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="" uk-icon="icon: bell"></a>
+                            </c:otherwise>
+                        </c:choose>
+                        <div uk-drop="mode: click" id="notificationDrop">
+                            <div
+                                    class="uk-card uk-card-body uk-card-default uk-padding-small"
+                                    style="text-align: center">
+                                <c:choose>
+                                    <c:when test="${notifications != null}">
+                                        <c:forEach items="${notifications}" var="notification" varStatus="loop">
+                                            <c:if test="${loop.index < 10}">
+                                                <div
+                                                        class="uk-tile uk-tile-muted uk-tile-small uk-margin-small uk-padding-small"
+                                                        id="notification${notification.notificationID}">
+                                                    <c:choose>
+                                                        <c:when test="${notification.subject == 'U-ListIt Notification'}">
+                                                            <a class="uk-link-muted" href=""
+                                                               id="notification${notification.notificationID}">
+                                                                <c:if test="${notification.viewed == 0}"> ${notification.message}
+                                                                    <span class="badge2"
+                                                                          id="badge2"></span>
+                                                                </c:if>
+                                                                <a class="uk-postion-top-right" style="color: red;"
+                                                                   onclick="dismiss(${notification.notificationID});"
+                                                                   uk-icon="icon: close"> </a>
+                                                            </a>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <a class="uk-link-muted" href=""
+                                                               id="notification${notification.notificationID}">${notification.subject}
+                                                                <c:if test="${notification.viewed == 0}">
+                                                                    <span class="badge2"></span>
+                                                                </c:if>
+                                                                <a class="uk-position-top-right uk-padding-small"
+                                                                   style="color: red;"
+                                                                   onclick="dismiss(${notification.notificationID});"
+                                                                   uk-icon="icon: close"> </a>
+                                                            </a>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </div>
+                                            </c:if>
+                                        </c:forEach>
+                                        <c:if test="${notificationCount > 10}">
+                                            <a style="color: darkgray;"
+                                               href="${pageContext.request.contextPath}/notifications">
+                                                See More</a>
+                                        </c:if>
+                                    </c:when>
+                                    <c:when test="${notifications == null}">
+                                        <c:choose>
+                                            <c:when test="${user != null}">
+                                                <p uk-icon="icon: happy" style="text-align: center">Nothing
+                                                    To See Here </p>
+                                            </c:when>
+                                            <c:when test="${user == null}">
+                                                <a uk-icon="icon: sign-in" href="/login"
+                                                   style="text-align: center">Login To See Notifications</a>
+                                            </c:when>
+                                        </c:choose>
+                                    </c:when>
+                                </c:choose>
+                            </div>
+                        </div>
+                    </li>
+                    <c:choose>
+                        <c:when test="${user != null }">
+                            <li><a>Welcome ${user.firstName}</a>
+                                <div uk-dropdown>
+                                    <ul class="uk-nav uk-dropdown-nav uk-grid-small" uk-grid>
+                                        <li class="uk-width-1-1"><a
+                                                href="${pageContext.request.contextPath}/viewProfile?userId=${sessionScope.user.userID}">
+                                            Profile Page</a></li>
+                                        <li class="uk-width-1-1"><a
+                                                href="${pageContext.request.contextPath}/viewUserListings">
+                                            Listings</a></li>
+                                            <li class="uk-width-1-1"><a
+                                                href="${pageContext.request.contextPath}/viewPurchaseHistory">
+                                            Purchase History</a></li>
+                                        <li class="uk-width-1-1"><a
+                                                href="${pageContext.request.contextPath}/notifications">
+                                            Notification</a></li>
+                                        <c:if test="${user.adminLevel > 0}">
+                                            <li class="uk-width-1-1"><a
+                                                    href="${pageContext.request.contextPath}/admin">
+                                                Admin</a></li>
+                                        </c:if>
+                                        <li class="uk-width-1-1"><a href="${pageContext.request.contextPath}/logout">Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${pageContext.request.contextPath}/login">
+                                Login</a></li>
+                            <li><a href="${pageContext.request.contextPath}/register">
+                                Register</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

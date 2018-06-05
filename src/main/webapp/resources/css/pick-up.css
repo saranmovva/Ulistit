@@ -1,0 +1,24 @@
+.active-user-icon {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+}
+
+.active-user-icon img {
+    width: 100%;
+    height: 100%;
+    border: 4px solid #08AEEA;
+}
+
+.inactive-user-icon {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+}
+
+.inactive-user-icon img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
